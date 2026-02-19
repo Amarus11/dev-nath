@@ -1,0 +1,72 @@
+<odoo>
+    <record id="view_res_partner_document_tree" model="ir.ui.view">
+        <field name="name">res.partner.document.list</field>
+        <field name="model">res.partner.document</field>
+        <field name="arch" type="xml">
+            <list string="All Documents" create="false">
+                <field name="name"/>
+                <field name="expiry_date"/>
+                <field name="partner_id"/>
+                <field name="category_id"/>
+                <field name="tags" widget="many2many_tags"/>
+                <field name="expiry_status" string="Status" widget="badge"
+                       decoration-danger="expiry_status == 'expired'"
+                       decoration-warning="expiry_status == 'expiring_today'"
+                       decoration-info="expiry_status == 'expiring_soon'"
+                       decoration-success="expiry_status == 'valid'"
+                       decoration-muted="expiry_status == 'no_expiry'"/>
+            </list>
+        </field>
+    </record>
+    
+    
+   
+
+
+    <!-- Action to Display All Documents in Tree View -->
+    <record id="action_res_partner_document_tree" model="ir.actions.act_window">
+        <field name="name">All Documents</field>
+        <field name="res_model">res.partner.document</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_res_partner_document_tree" />
+    </record>
+
+
+    <!-- Action: All Documents Tree View -->
+    <record id="action_res_partner_document_tree" model="ir.actions.act_window">
+        <field name="name">All Documents</field>
+        <field name="res_model">res.partner.document</field>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="view_res_partner_document_tree" />
+    </record>
+
+    <!-- Main Menu: Customer Documents (opens All Documents list view directly) -->
+    <menuitem id="menu_customer_documents_root"
+        name="Customer Documents"
+        action="action_res_partner_document_tree"
+        sequence="10" />
+
+    <!-- Submenu: Document Dashboard under Customer Documents -->
+    <menuitem id="menu_customer_document_dashboard"
+        parent="menu_customer_documents_root"
+        name="Document Dashboard"
+        action="action_customer_document_dashboard"
+        groups="base.group_system"
+        sequence="20" />
+
+
+    <!-- Parent Menu for Customer Documents -->
+    <!-- <menuitem id="menu_customer_documents_root"
+        name="Customer Documents"
+        parent="menu_customer_document_dashboard"
+        sequence="20" /> -->
+
+    <!-- Submenu for All Documents -->
+    <!-- <menuitem id="menu_customer_documents_all"
+        name="All Documents"
+        parent="menu_customer_documents_root"
+        action="action_res_partner_document_tree"
+        sequence="30" /> -->
+
+
+</odoo>

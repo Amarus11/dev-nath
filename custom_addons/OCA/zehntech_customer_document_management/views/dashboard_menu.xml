@@ -1,0 +1,70 @@
+<odoo>
+    <record id="view_customer_document_dashboard_form" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.form</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Document Expiry Dashboard">
+                <group>
+                    <field name="expired_docs_count" />
+                    <field name="not_expired_docs_count" />
+                </group>
+                <button name="action_refresh_dashboard" string="Refresh Dashboard" type="object"
+                    class="btn-primary" />
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Dynamic Pie Chart Dashboard -->
+    <record id="action_customer_document_dashboard" model="ir.actions.act_window">
+        <field name="name">Document Dashboard</field>
+        <field name="res_model">customer.document.dashboard</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id"
+            ref="zehntech_customer_document_management.view_customer_document_dashboard_graph" />
+        <field name="target">current</field>
+    </record>
+    
+    <!-- Menu Items -->
+    <!-- root -->
+    <menuitem id="menu_customer_document_dashboard"
+        name="Customer Document Dashboard"
+        sequence="10"/>
+        
+    <!-- submenu -->
+    <menuitem id="menu_customer_document_dashboard_root"
+        parent = "menu_customer_document_dashboard"
+        action="action_customer_document_dashboard"
+        name="Document Dashboard"
+        groups="base.group_system"
+        sequence="10" />
+    
+
+    <!-- <menuitem id="menu_customer_document_dashboard"
+        name="Dashboard"
+        parent="menu_customer_document_dashboard_root"
+        action="action_customer_document_dashboard"
+        sequence="1" /> -->
+</odoo>
+
+
+<!-- Action for Dynamic Pie Chart Dashboard -->
+<!-- <record id="action_customer_document_dashboard" model="ir.actions.act_window">
+        <field name="name">Document Dashboard</field>
+        <field name="res_model">customer.document.dashboard</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id"
+    ref="zehntech_customer_document_management.view_customer_document_dashboard_graph"/>
+        <field name="target">current</field>
+    </record> -->
+
+<!-- Menu Items -->
+<!-- <menuitem id="menu_customer_document_dashboard_root"
+        name="Document Management"
+        sequence="10" />
+
+    <menuitem id="menu_customer_document_dashboard"
+        name="Dashboard"
+        parent="menu_customer_document_dashboard_root"
+        action="action_customer_document_dashboard"
+        sequence="1" />
+</odoo> -->

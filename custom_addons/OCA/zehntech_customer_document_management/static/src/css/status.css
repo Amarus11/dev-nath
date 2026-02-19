@@ -1,0 +1,30 @@
+.bg-danger {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+.bg-warning {
+    background-color: #ffd559 !important;
+    color: #fff !important;
+}
+.bg-success {
+    background-color: #28a745 !important;
+    color: #fff !important;
+}
+.bg-info {
+    background-color: #17a2b8 !important;
+    color: #fff !important;
+}
+/* .modal-content:has(.hide-save-buttons) > footer.modal-footer {
+    display: none !important;
+} */
+
+/* div.modal-content.hide-save-buttons .o_form_button_save,
+div.modal-content.hide-save-buttons .o_form_button_save_new,
+div.modal-content.hide-save-buttons .o_form_button_cancel {
+    display: none !important;
+} */
+
+/* Hide the footer with buttons, but only for the form view with 'hide-save-buttons' class */
+div.modal-content.hide-save-buttons footer.modal-footer {
+    display: none !important;
+}

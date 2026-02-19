@@ -1,0 +1,23 @@
+/* .o_signature_wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.o_signature_label {
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.o_signature_box {
+    border: 2px solid #d3d3d3;
+    border-radius: 5px;
+    width: 150px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+} */

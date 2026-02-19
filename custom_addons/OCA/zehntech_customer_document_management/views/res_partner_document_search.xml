@@ -1,0 +1,34 @@
+<odoo>
+    <!-- Search View for res.partner.document -->
+    <record id="view_res_partner_document_search" model="ir.ui.view">
+        <field name="name">res.partner.document.search</field>
+        <field name="model">res.partner.document</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="expiry_date"/>
+                <!-- Add Tags Search Field -->
+                <field name="tags" string="Tags doc" placeholder="Search by Tags..."/>
+                <field name="category_id" string="Category"/>
+                
+                 
+                
+            </search>
+        </field>
+    </record>
+
+    <!-- Inherit the Search View to Add Tags Filter -->
+    <record id="view_res_partner_document_search_inherit_tags" model="ir.ui.view">
+        <field name="name">res.partner.document.search.inherit.tags</field>
+        <field name="model">res.partner.document</field>
+        <field name="inherit_id" ref="zehntech_customer_document_management.view_res_partner_document_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="tags" string="Tags doc" placeholder="Search by Tags..."/>
+               
+              
+            </xpath>
+        </field>
+    </record>
+</odoo>

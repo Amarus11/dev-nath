@@ -1,0 +1,46 @@
+<odoo>
+
+    <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.customer_document</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Document Expiry Notifications -->
+            <xpath expr="//div[@id='contacts_settings']" position="after">
+                <div class="app_settings_block">
+                    <h2>Document Expiry Notifications</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <label for="notify_days_before_expiry">Notify Before Expiry (Days)</label>
+                            <field name="notify_days_before_expiry" placeholder="Enter days" class="oe_inline"
+                             help="Number of days before expiry to send a notification."/>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <label for="notify_days_after_expiry">Notify After Expiry (Days)</label>
+                            <field name="notify_days_after_expiry" placeholder="Enter days" class="oe_inline"
+                            help="Number of days after expiry to send a follow-up notification."/>
+                        </div>
+
+                        <!-- New Field for Cron Execution Time -->
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <label for="email_notification_time">Expiry Notification Execution Time</label>
+                            <field name="email_notification_time" placeholder="HH:MM (24-hour format)" class="oe_inline" 
+                            help="Set the time (in 24-hour format) when expiry notifications should be sent daily."/>
+                        </div>
+
+                        <div class="col-12 o_setting_right_pane mt8">
+                            <span class="text-muted">
+                                Set the time (in 24-hour format) when expiry notifications should be sent daily.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+
+    
+
+</odoo>

@@ -1,0 +1,70 @@
+<odoo>
+    <!-- <record id="cron_check_document_expiry" model="ir.cron">
+        <field name="name">Check Document Expiry</field>
+        <field name="model_id" ref="model_res_partner_document" />
+        <field name="state">code</field>
+        <field name="code">model.search([]).send_expiry_notification()</field>
+        <field name="interval_type">days</field>
+        <field name="interval_number">1</field>
+        <field name="active">True</field>
+    </record> -->
+    <!-- <record id="cron_check_document_expiry" model="ir.cron">
+        <field name="name">Check Document Expiry</field>
+        <field name="model_id" ref="model_res_partner_document" />
+        <field name="state">code</field>
+        <field name="code">model.send_expiry_notification()</field>
+        <field name="interval_type">days</field>
+        <field name="interval_number">1</field>
+        <field name="numbercall">-1</field>
+        <field name="nextcall" eval="(DateTime.now().replace(hour=3, minute=20, second=0))" />
+        <field name="active">True</field>
+    </record> -->
+
+    <record id="cron_document_expiry_notification" model="ir.cron">
+        <field name="name">Document Expiry Notification</field>
+        <field name="model_id" ref="model_res_partner_document" />
+        <field name="state">code</field>
+        <field name="code">model.send_expiry_notification()</field>
+        <field name="interval_type">days</field>
+        <field name="interval_number">1</field>
+        <!-- <field name="numbercall">-1</field> -->
+        <field name="active" eval="True" />
+    </record>
+
+
+
+    <record id="ir_cron_update_document_dashboard" model="ir.cron">
+        <field name="name">Update Document Expiry Dashboard</field>
+        <field name="model_id" ref="model_customer_document_dashboard" />
+        <field name="state">code</field>
+        <field name="code">model.calculate_expiry_data()</field>
+        <field name="interval_number">1</field>  <!-- Change from 5 minutes to 1 minute -->
+        <field name="interval_type">minutes</field>
+        <!-- <field name="numbercall">-1</field> -->
+        <field name="active">True</field>
+    </record>
+
+
+
+    <!-- <record id="ir_cron_update_document_dashboard" model="ir.cron">
+        <field name="name">Update Document Expiry Dashboard</field>
+        <field name="model_id" ref="model_customer_document_dashboard" />
+        <field name="state">code</field>
+        <field name="code">model.calculate_expiry_data()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record> -->
+</odoo>
+
+<!-- <record id="ir_cron_update_document_dashboard" model="ir.cron">
+        <field name="name">Update Document Expiry Dashboard</field>
+        <field name="model_id" ref="model_customer_document_dashboard"/>
+        <field name="state">code</field>
+        <field name="code">model.calculate_expiry_data()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record> -->

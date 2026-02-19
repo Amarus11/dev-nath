@@ -1,0 +1,13 @@
+<odoo>
+    <!-- Dynamic Pie Chart View -->
+    <record id="view_customer_document_dashboard_graph" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.graph</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <graph string="Document Expiry Status" type="pie">
+                <field name="name" type="row"/>
+                <field name="count" type="measure"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

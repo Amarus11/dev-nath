@@ -1,0 +1,171 @@
+<odoo>
+
+    <!-- First form view -->
+    <record id="view_customer_document_form_1" model="ir.ui.view">
+        <field name="name">customer.document.form.view</field>
+        <field name="model">customer.document</field>
+        <field name="arch" type="xml">
+            <form string="Customer Document">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="partner_id" />
+                        <field name="expiry_date" />
+                        <field name="category_id" />
+                        <field name="is_expired" readonly="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_customer_document_form" model="ir.ui.view">
+        <field name="name">customer.document.form.view</field>
+        <field name="model">res.partner.document</field>
+        <field name="arch" type="xml">
+            <form string="Customer Document">
+                <sheet>
+                    <group>
+                        <field name="name" required="1" />
+                        <field name="attachment" required="1"/>
+                        <field name="document_url" required="1"/>
+                        <!-- <field name="expiry_date" required="1" /> -->
+                        <field name="expiry_date" required="1" widget="expiry_date"/>
+
+                        <field name="email" required="1" />
+                        <field name="partner_id" required="1" />
+                        <field name="category_id" required="1"/>
+                        <field name="tags" widget="many2many_tags" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Second form view -->
+    <record id="view_customer_document_form_2" model="ir.ui.view">
+        <field name="name">customer.document.form</field>
+        <field name="model">customer.document</field>
+        <field name="arch" type="xml">
+            <form string="Customer Document">
+                <group>
+                    <field name="name" />
+                    <field name="partner_id" />
+                    <field name="expiry_date" />
+                    <field name="category_id" />
+                    <field name="is_expired" readonly="1" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- <record id="view_customer_document_form" model="ir.ui.view">
+        <field name="name">customer.document.form</field>
+        <field name="model">customer.document</field>
+        <field name="arch" type="xml">
+            <form string="Customer Document">
+                <group>
+                    <field name="name" />
+                    <field name="partner_id" />
+                    <field name="expiry_date" />
+                    <field name="category_id" />
+
+
+                    <field name="is_expired" readonly="1" />
+                </group>
+            </form>
+        </field>
+    </record> -->
+
+
+    <!-- Customer Document Tree View -->
+    <record id="view_customer_document_tree" model="ir.ui.view">
+        <field name="name">customer.document.tree.view</field>
+        <field name="model">customer.document</field>
+        <field name="arch" type="xml">
+            <list create="false">
+                <field name="name" string="Document Name"  />
+                <field name="partner_id" string="Partner"  />
+                <field name="expiry_date" string="Expiry Date"  />
+                <field name="category_id" string="Category" />
+                <field name="is_expired" string="Expired?"  />
+                <field name="expiry_status" string="Expiry Status"  />
+                
+            </list>
+            <!-- <tree create="false">
+                <field name="name" />
+                <field name="partner_id" />
+                <field name="expiry_date" />
+                <field name="category_id" />
+
+
+                <field name="is_expired" />
+                <field name="expiry_status" widget="statusbar"/>
+
+            </tree> -->
+        </field>
+    </record>
+    <!-- <record id="customer_document_tree_view" model="ir.ui.view">
+        <field name="name">customer.document.tree.view</field>
+        <field name="model">customer.document</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Documents">
+                <field name="name" />
+                <field name="expiry_date" />
+                <field name="expiry_status" widget="statusbar"
+                    options="{'expired': 'red', 'not_expired': 'green'}" />
+            </tree>
+        </field>
+    </record>
+ -->
+
+
+    <record id="customer_document_tree_view" model="ir.ui.view">
+        <field name="name">customer.document.tree.view</field>
+        <field name="model">customer.document</field>
+        <field name="arch" type="xml">
+            <list string="Customer Documents" create="false">
+                <field name="name" />
+                <field name="expiry_date" />
+                <field name="expiry_status" widget="statusbar"
+                    options="{'expired': 'red', 'not_expired': 'green'}" />
+            </list>
+        </field>
+    </record>
+
+
+    <!-- Action to Show All Documents -->
+    <record id="action_customer_document_tree" model="ir.actions.act_window">
+        <field name="name">All Documents</field>
+        <field name="res_model">customer.document</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_customer_document_tree" />
+        <field name="domain">[]</field> <!-- Ensures all documents are displayed -->
+    </record>
+
+    <record id="action_customer_document_category" model="ir.actions.act_window">
+        <field name="name">Document Categories</field>
+        <field name="res_model">res.partner.document.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+    </record>
+
+
+    <!-- Top Menu: Customer Documents -->
+    <!-- <menuitem id="menu_customer_document_root" 
+    name="Customer Documents"  
+    parent="menu_customer_document_dashboard"
+    sequence="20" />
+
+
+    <menuitem id="menu_customer_document_all"
+        name="All Documents"
+        parent="menu_customer_document_root"
+        action="action_customer_document_tree"
+        sequence="30" /> -->
+
+
+</odoo>

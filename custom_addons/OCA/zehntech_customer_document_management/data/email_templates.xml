@@ -1,0 +1,99 @@
+<odoo>
+    <data>
+
+        <!-- Template for Document Expiring Today -->
+        <record id="email_template_document_expiry_today" model="mail.template">
+            <field name="name">Document Expiry Notification - Today</field>
+            <field name="email_from">{{ object.partner_id.company_id.email or 'no-reply@yourcompany.com' }}</field>
+            <field name="subject">Reminder: Your Document "{{ object.name }}" is expiring today</field>
+            <field name="model_id" ref="model_res_partner_document" />
+            <field name="auto_delete" eval="True" />
+            <field name="email_to">{{ object.email }}</field>
+            <field name="lang">{{ object.create_uid.lang }}</field>
+            <field name="body_html">
+                <![CDATA[
+                <p>Dear <strong><t t-esc="object.partner_id.name" /></strong>,</p>
+                <p>This is a reminder that your document <strong><t t-esc="object.name" /></strong> is expiring today.</p>
+
+                <t t-if="object.document_url">
+                    <p><strong>Document Link:</strong> <a t-att-href="object.document_url" target="_blank">Click here to view document</a></p>
+                </t>
+
+                <p>Please take the necessary action to renew or update your document to ensure uninterrupted service.</p>
+
+                <t t-if="object.attachment">
+                    <p>You have an attached document.</p>
+                </t>
+
+                <p>Best regards,<br/>Your Company Team</p>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Template for Document Expiring Soon (Before Expiry) -->
+        <record id="email_template_document_expiry_before" model="mail.template">
+            <field name="name">Document Expiry Notification - Upcoming</field>
+            <field name="email_from">{{ object.partner_id.company_id.email or 'no-reply@yourcompany.com' }}</field>
+            <field name="subject">Reminder: Your Document "{{ object.name }}" will expire on {{ object.expiry_date }}</field>
+            <field name="model_id" ref="model_res_partner_document" />
+            <field name="auto_delete" eval="True" />
+            <field name="email_to">{{ object.email }}</field>
+            <field name="lang">{{ object.create_uid.lang }}</field>
+            <field name="body_html">
+                <![CDATA[
+                <p>Dear <strong><t t-esc="object.partner_id.name" /></strong>,</p>
+                <p>This is a reminder that your document <strong><t t-esc="object.name" /></strong> will expire on <strong><t t-esc="object.expiry_date" /></strong>.</p>
+
+                <t t-if="object.document_url">
+                    <p><strong>Document Link:</strong> <a t-att-href="object.document_url" target="_blank">Click here to view document</a></p>
+                </t>
+
+                <p>Please take the necessary action before the expiry date to avoid any service interruptions.</p>
+
+                <t t-if="object.attachment">
+                    <p>You have an attached document.</p>
+                </t>
+
+                <p>Best regards,<br/>Your Company Team</p>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Template for Document Already Expired (After Expiry) -->
+        <record id="email_template_document_expiry_after" model="mail.template">
+            <field name="name">Document Expiry Notification - Expired</field>
+            <field name="email_from">{{ object.partner_id.company_id.email or 'no-reply@yourcompany.com' }}</field>
+            <field name="subject">Alert: Your Document "{{ object.name }}" has expired</field>
+            <field name="model_id" ref="model_res_partner_document" />
+            <field name="auto_delete" eval="True" />
+            <field name="email_to">{{ object.email }}</field>
+            <field name="lang">{{ object.create_uid.lang }}</field>
+            <field name="body_html">
+                <![CDATA[
+                <p>Dear <strong><t t-esc="object.partner_id.name" /></strong>,</p>
+                <p>We would like to inform you that your document <strong><t t-esc="object.name" /></strong> has expired on <strong><t t-esc="object.expiry_date" /></strong>.</p>
+
+                <t t-if="object.document_url">
+                    <p><strong>Document Link:</strong> <a t-att-href="object.document_url" target="_blank">Click here to view document</a></p>
+                </t>
+
+                <p>Please update or renew your document as soon as possible.</p>
+
+                <t t-if="object.attachment">
+                    <p>You have an attached document.</p>
+                </t>
+
+                <p>Best regards,<br/>Your Company Team</p>
+                ]]>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+    </data>
+</odoo>

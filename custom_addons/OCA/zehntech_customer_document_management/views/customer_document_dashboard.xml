@@ -1,0 +1,316 @@
+<odoo>
+    <record id="view_customer_document_dashboard_tree" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.tree</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <list decoration-bf="count > 0" create="false">
+                
+                <!-- Section Title -->
+                <field name="dashboard_title" string="📊 Document Status Overview" readonly="1"/>
+                
+                <!-- Highlighted Document Count -->
+                <field name="name" string="Status"/>
+                <field name="count" string="🧾 Document Count"/>
+    
+                <!-- Spacer field for visual separation -->
+               
+    
+                <!-- Buttons with spacing between them using dummy invisible fields -->
+                <button name="action_open_total_documents"
+                        type="object"
+                        string="📄 Total Documents"
+                        class="oe_stat_button btn btn-outline-primary dashboard-btn"/>
+
+                <button name="action_open_expired_documents"
+                        type="object"
+                        string="⛔ Expired Documents"
+                        class="oe_stat_button btn btn-outline-danger dashboard-btn"/>
+
+                <button name="action_open_not_expired_documents"
+                        type="object"
+                        string="✅ Not Expired Documents"
+                        class="oe_stat_button btn btn-outline-success dashboard-btn"/>
+
+                <button name="action_open_expiring_soon_documents"
+                        type="object"
+                        string="⏰ Expiring Soon (7 Days)"
+                        class="oe_stat_button btn btn-outline-warning dashboard-btn"/>
+
+    
+            </list>
+        </field>
+    </record>
+
+    <!-- <record id="view_customer_document_dashboard_form" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.form</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="📊 Document Status Overview">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="count" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_open_total_documents" type="object" string="📄 Total Documents"
+    class="oe_stat_button"/>
+                        <button name="action_open_expired_documents" type="object" string="⛔ Expired Documents"
+    class="oe_stat_button"/>
+                        <button name="action_open_not_expired_documents" type="object" string="✅ Not Expired Documents"
+    class="oe_stat_button"/>
+                        <button name="action_open_expiring_soon_documents" type="object" string="⏰ Expiring Soon (7 Days)"
+    class="oe_stat_button"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+     -->
+
+    <!-- <record id="view_customer_document_dashboard_tree" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.tree</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+
+
+                <field name="name" />
+                <field name="count" />
+                <button name="action_open_total_documents" type="object" string="Total Documents"
+                    class="oe_stat_button" />
+                <button name="action_open_expired_documents" type="object"
+                    string="Expired Documents" class="oe_stat_button" />
+                <button name="action_open_not_expired_documents" type="object"
+                    string="Not Expired Documents" class="oe_stat_button" />
+                <button name="action_open_expiring_soon_documents" type="object"
+                    string="Expiring Soon (Next 7 Days)" class="oe_stat_button" />
+
+               
+
+            </tree>
+
+
+        </field>
+    </record> -->
+
+    <record id="customer_document_dashboard_view" model="ir.ui.view">
+        <field name="name">customer.document.dashboard</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Document Dashboard">
+                <div class="o_stat_box">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Total Documents</span>
+                                <h4>
+                                    <field name="total_documents" />
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="o_stat_info text-primary">
+                                <span class="o_stat_text">Expired</span>
+                                <h4>
+                                    <field name="expired_documents" />
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="o_stat_info text-success">
+                                <span class="o_stat_text">Not Expired</span>
+                                <h4>
+                                    <field name="not_expired_documents" />
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="o_stat_info text-warning">
+                                <span class="o_stat_text">Expiring Soon</span>
+                                <h4>
+                                    <field name="document_count_7_days" />
+                                </h4>
+                            </div>
+                        </div>
+                        <!-- <div class="col-3">
+                            <div class="o_stat_info">
+                                <button name="action_refresh_dashboard" type="object"
+                                    string="Refresh Dashboard" class="oe_highlight" />
+
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="customer_document_dashboard_graph" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.graph</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            
+            <graph string="Document Statistics" type="pie">
+                <field name="state" />
+                <field name="document_count" />
+            </graph>
+            
+
+        </field>
+    </record>
+
+
+    <record id="view_customer_document_dashboard_search" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.search</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="view_customer_document_dashboard_form" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.form</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_refresh_dashboard" type="object" string="Refresh Dashboard"
+                        class="oe_highlight" />
+                </header>
+                <!-- Your form content goes here -->
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_customer_document_dashboard_form" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.form</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <header>
+                    <button name="action_refresh_dashboard" type="object" string="Refresh"
+                        class="btn-primary" icon="fa-refresh" />
+                </header>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_open_expiring_soon_documents" model="ir.actions.act_window">
+        <field name="name">Expiring Soon (Next 7 Days)</field>
+        <field name="res_model">res.partner.document</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[
+            ('expiry_date', '&gt;=', (context.get('current_date'))),
+            ('expiry_date', '&lt;=', (context.get('current_date_plus_7')))
+            ]
+        </field>
+        <field name="target">current</field>
+    </record>
+    <record id="view_customer_document_dashboard_graph" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.graph</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <graph string="Document Statistics" type="bar">
+                <field name="name" />
+                <field name="count" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_customer_document_dashboard_linechart" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.linechart</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <graph string="Document Expiry Trend" type="line">
+                <field name="name" />
+                <field name="count" />
+            </graph>
+        </field>
+    </record>
+
+</odoo>
+
+
+<!-- <odoo>
+    <record id="view_customer_document_dashboard_tree" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.tree</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="count" />
+                <button name="action_open_total_documents" type="object" string="Total Documents"
+                    class="oe_stat_button" />
+                <button name="action_open_expired_documents" type="object"
+                    string="Expired Documents" class="oe_stat_button" />
+                <button name="action_open_not_expired_documents" type="object"
+                    string="Not Expired Documents" class="oe_stat_button" />
+            </tree>
+        </field>
+    </record>
+    <record id="customer_document_dashboard_view" model="ir.ui.view">
+        <field name="name">customer.document.dashboard</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Document Dashboard">
+                <div class="o_stat_box">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Total Documents</span>
+                                <h4>
+                                    <field name="total_documents" />
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="o_stat_info text-primary">
+                                <span class="o_stat_text">Expired</span>
+                                <h4>
+                                    <field name="expired_documents" />
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="o_stat_info text-success">
+                                <span class="o_stat_text">Not Expired</span>
+                                <h4>
+                                    <field name="not_expired_documents" />
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </field>
+    </record>
+    <record id="customer_document_dashboard_graph" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.graph</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <graph string="Document Statistics" type="pie">
+                <field name="state" />
+                <field name="document_count" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="customer_document_dashboard_graph" model="ir.ui.view">
+        <field name="name">customer.document.dashboard.graph</field>
+        <field name="model">customer.document.dashboard</field>
+        <field name="arch" type="xml">
+            <graph string="Document Statistics" type="pie">
+                <field name="state" />
+                <field name="document_count" />
+            </graph>
+        </field>
+    </record>
+
+
+</odoo> -->

@@ -1,0 +1,1465 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* zehntech_customer_document_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-15 10:36+0000\n"
+"PO-Revision-Date: 2025-04-15 10:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,body_html:zehntech_customer_document_management.email_template_document_expiry_today
+msgid ""
+"\n"
+"                \n"
+"                <p>Dear <strong><t t-esc=\"object.partner_id.name\" /></strong>,</p>\n"
+"                <p>This is a reminder that your document <strong><t t-esc=\"object.name\" /></strong> is expiring today.</p>\n"
+"\n"
+"                <t t-if=\"object.document_url\">\n"
+"                    <p><strong>Document Link:</strong> <a t-att-href=\"object.document_url\" target=\"_blank\">Click here to view document</a></p>\n"
+"                </t>\n"
+"\n"
+"                <p>Please take the necessary action to renew or update your document to ensure uninterrupted service.</p>\n"
+"\n"
+"                <t t-if=\"object.attachment\">\n"
+"                    <p>You have an attached document.</p>\n"
+"                </t>\n"
+"\n"
+"                <p>Best regards,<br/>Your Company Team</p>\n"
+"                \n"
+"            "
+msgstr ""
+"\n"
+"                \n"
+"                <p>Cher <strong><t t-esc=\"object.partner_id.name\" /></strong>,</p>\n"
+"                <p>Ceci est un rappel que votre document <strong><t t-esc=\"object.name\" /></strong> expire aujourd'hui.</p>\n"
+"\n"
+"                <t t-if=\"object.document_url\">\n"
+"                    <p><strong>Lien vers le document :</strong> <a t-att-href=\"object.document_url\" target=\"_blank\">Cliquez ici pour voir le document</a></p>\n"
+"                </t>\n"
+"\n"
+"                <p>Veuillez prendre les mesures nécessaires pour renouveler ou mettre à jour votre document afin d’assurer un service ininterrompu.</p>\n"
+"\n"
+"                <t t-if=\"object.attachment\">\n"
+"                    <p>Vous avez un document joint.</p>\n"
+"                </t>\n"
+"\n"
+"                <p>Cordialement,<br/>L'équipe de votre entreprise</p>\n"
+"                \n"
+"            "
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,body_html:zehntech_customer_document_management.email_template_document_expiry_before
+msgid ""
+"\n"
+"                \n"
+"                <p>Dear <strong><t t-esc=\"object.partner_id.name\" /></strong>,</p>\n"
+"                <p>This is a reminder that your document <strong><t t-esc=\"object.name\" /></strong> will expire on <strong><t t-esc=\"object.expiry_date\" /></strong>.</p>\n"
+"\n"
+"                <t t-if=\"object.document_url\">\n"
+"                    <p><strong>Document Link:</strong> <a t-att-href=\"object.document_url\" target=\"_blank\">Click here to view document</a></p>\n"
+"                </t>\n"
+"\n"
+"                <p>Please take the necessary action before the expiry date to avoid any service interruptions.</p>\n"
+"\n"
+"                <t t-if=\"object.attachment\">\n"
+"                    <p>You have an attached document.</p>\n"
+"                </t>\n"
+"\n"
+"                <p>Best regards,<br/>Your Company Team</p>\n"
+"                \n"
+"            "
+msgstr ""
+"\n"
+"                \n"
+"                <p>Cher <strong><t t-esc=\"object.partner_id.name\" /></strong>,</p>\n"
+"                <p>Ceci est un rappel que votre document <strong><t t-esc=\"object.name\" /></strong> expirera le <strong><t t-esc=\"object.expiry_date\" /></strong>.</p>\n"
+"\n"
+"                <t t-if=\"object.document_url\">\n"
+"                    <p><strong>Document Link:</strong> <a t-att-href=\"object.document_url\" target=\"_blank\">Cliquez ici pour voir le document</a></p>\n"
+"                </t>\n"
+"\n"
+"                <p>Veuillez prendre les mesures nécessaires avant la date d'expiration pour éviter toute interruption de service.</p>\n"
+"\n"
+"                <t t-if=\"object.attachment\">\n"
+"                    <p>Vous avez un document joint.</p>\n"
+"                </t>\n"
+"\n"
+"                <p>Cordialement,<br/>L'équipe de votre entreprise</p>\n"
+"                \n"
+"            "
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,body_html:zehntech_customer_document_management.email_template_document_expiry_after
+msgid ""
+"\n"
+"                \n"
+"                <p>Dear <strong><t t-esc=\"object.partner_id.name\" /></strong>,</p>\n"
+"                <p>We would like to inform you that your document <strong><t t-esc=\"object.name\" /></strong> has expired on <strong><t t-esc=\"object.expiry_date\" /></strong>.</p>\n"
+"\n"
+"                <t t-if=\"object.document_url\">\n"
+"                    <p><strong>Document Link:</strong> <a t-att-href=\"object.document_url\" target=\"_blank\">Click here to view document</a></p>\n"
+"                </t>\n"
+"\n"
+"                <p>Please update or renew your document as soon as possible.</p>\n"
+"\n"
+"                <t t-if=\"object.attachment\">\n"
+"                    <p>You have an attached document.</p>\n"
+"                </t>\n"
+"\n"
+"                <p>Best regards,<br/>Your Company Team</p>\n"
+"                \n"
+"            "
+msgstr ""
+"\n"
+"                \n"
+"                <p>Cher <strong><t t-esc=\"object.partner_id.name\" /></strong>,</p>\n"
+"                <p>We would like to inform you that your document <strong><t t-esc=\"object.name\" /></strong> a expiré le <strong><t t-esc=\"object.expiry_date\" /></strong>.</p>\n"
+"\n"
+"                <t t-if=\"object.document_url\">\n"
+"                    <p><strong>Lien vers le document :</strong> <a t-att-href=\"object.document_url\" target=\"_blank\">Cliquez ici pour voir le document</a></p>\n"
+"                </t>\n"
+"\n"
+"                <p>Veuillez mettre à jour ou renouveler votre document dès que possible.</p>\n"
+"\n"
+"                <t t-if=\"object.attachment\">\n"
+"                    <p>Vous avez un document joint.</p>\n"
+"                </t>\n"
+"\n"
+"                <p>Cordialement,<br/>L'équipe de votre entreprise</p>\n"
+"                \n"
+"            "
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.customer_document_dashboard_view
+msgid "<span class=\"o_stat_text\">Expired</span>"
+msgstr "<span class=\"o_stat_text\">Expiré</span>"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.customer_document_dashboard_view
+msgid "<span class=\"o_stat_text\">Expiring Soon</span>"
+msgstr "<span class=\"o_stat_text\">Expire bientôt</span>"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.customer_document_dashboard_view
+msgid "<span class=\"o_stat_text\">Not Expired</span>"
+msgstr "<span class=\"o_stat_text\">Non expiré</span>"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.customer_document_dashboard_view
+msgid "<span class=\"o_stat_text\">Total Documents</span>"
+msgstr "<span class=\"o_stat_text\">Total des documents</span>"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid ""
+"<span class=\"text-muted\">\n"
+"                                Set the time (in 24-hour format) when expiry notifications should be sent daily.\n"
+"                            </span>"
+msgstr ""
+"<span class=\"text-muted\">\n"
+"                                Définissez l'heure (au format 24 heures) à laquelle les notifications d'expiration doivent être envoyées quotidiennement.\n"
+"                            </span>"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_config_settings__unsplash_access_key
+msgid "API access key for integrating Unsplash."
+msgstr "Clé d'accès API pour l'intégration d'Unsplash."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_needaction
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_needaction
+msgid "Action Needed"
+msgstr "Action nécessaire"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_exception_decoration
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Activité Exception Décoration"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_state
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_state
+msgid "Activity State"
+msgstr "État d'activité"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_type_icon
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icône de type d'activité"
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,subject:zehntech_customer_document_management.email_template_document_expiry_after
+msgid "Alert: Your Document \"{{ object.name }}\" has expired"
+msgstr "Alerte : votre document \"{{ object.name }}\" a expiré"
+
+#. module: zehntech_customer_document_management
+#: model:ir.actions.act_window,name:zehntech_customer_document_management.action_customer_document_tree
+#: model:ir.actions.act_window,name:zehntech_customer_document_management.action_res_partner_document_tree
+#: model:ir.ui.menu,name:zehntech_customer_document_management.menu_customer_documents_all
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_document_tree
+msgid "All Documents"
+msgstr "Tous les documents"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__customer_document_dashboard__state__approved
+#, python-format
+msgid "Approved"
+msgstr "Approuvé"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Are you sure you want to delete this document?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce document ?"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__tags
+msgid "Assign tags to categorize this document."
+msgstr "Attribuer des balises pour catégoriser ce document."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_ir_attachment
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__attachment
+msgid "Attachment"
+msgstr "Pièce jointe"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_attachment_count
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Attachment or Document URL is required."
+msgstr "L'URL de la pièce jointe ou du document est requise."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__category_id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__category_id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category__category_id
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_tree
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_document_search
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Category"
+msgstr "Catégorie"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category__name
+msgid "Category Name"
+msgstr "Nom de la catégorie"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__create_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__create_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__create_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__create_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category__create_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_tag__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__create_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__create_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__create_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__create_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category__create_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_tag__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__partner_id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__partner_id
+msgid "Customer"
+msgstr "Client"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_customer_document
+#: model:ir.model,name:zehntech_customer_document_management.model_res_partner_document
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_form
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_form_1
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_form_2
+msgid "Customer Document"
+msgstr "Document client"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_customer_document_dashboard
+#: model:ir.ui.menu,name:zehntech_customer_document_management.menu_customer_document_dashboard
+msgid "Customer Document Dashboard"
+msgstr "Tableau de bord des documents clients"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_customer_document_signature_wizard
+msgid "Customer Document Signature Wizard"
+msgstr "Assistant de signature de document client"
+
+#. module: zehntech_customer_document_management
+#: model:ir.ui.menu,name:zehntech_customer_document_management.menu_customer_documents_root
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.customer_document_tree_view
+msgid "Customer Documents"
+msgstr "Assistant de signature de document client"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_config_settings__notify_days_after_expiry
+msgid "Days After Expiry Notification"
+msgstr "Notification des jours après l'expiration"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_config_settings__notify_days_before_expiry
+msgid "Days Before Expiry Notification"
+msgstr "Notification de jours avant l'expiration"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__display_name
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__display_name
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__display_name
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__display_name
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category__display_name
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_tag__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Document"
+msgstr "Document"
+
+#. module: zehntech_customer_document_management
+#: model:ir.actions.act_window,name:zehntech_customer_document_management.action_customer_document_category
+msgid "Document Categories"
+msgstr "Catégories de documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_res_partner_document_category
+msgid "Document Category"
+msgstr "Catégorie de document"
+
+#. module: zehntech_customer_document_management
+#: model:res.groups,name:zehntech_customer_document_management.group_document_category_manager
+msgid "Document Category Manager"
+msgstr "Gestionnaire de catégories de documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__count
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__document_count
+msgid "Document Count"
+msgstr "Nombre de documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.actions.act_window,name:zehntech_customer_document_management.action_customer_document_dashboard
+#: model:ir.ui.menu,name:zehntech_customer_document_management.menu_customer_document_dashboard_root
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.customer_document_dashboard_view
+msgid "Document Dashboard"
+msgstr "Tableau de bord des documents"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_form
+msgid "Document Expiry Dashboard"
+msgstr "Tableau de bord d'expiration des documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.actions.server,name:zehntech_customer_document_management.cron_document_expiry_notification_ir_actions_server
+#: model:ir.cron,cron_name:zehntech_customer_document_management.cron_document_expiry_notification
+msgid "Document Expiry Notification"
+msgstr "Notification d'expiration du document"
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,name:zehntech_customer_document_management.email_template_document_expiry_after
+msgid "Document Expiry Notification - Expired"
+msgstr "Avis d'expiration du document - Expiré"
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,name:zehntech_customer_document_management.email_template_document_expiry_today
+msgid "Document Expiry Notification - Today"
+msgstr "Avis d'expiration de document - Aujourd'hui"
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,name:zehntech_customer_document_management.email_template_document_expiry_before
+msgid "Document Expiry Notification - Upcoming"
+msgstr "Notification d'expiration de document - À venir"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid "Document Expiry Notifications"
+msgstr "Notifications d'expiration des documents"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_graph
+msgid "Document Expiry Status"
+msgstr "Statut d'expiration du document"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_linechart
+msgid "Document Expiry Trend"
+msgstr "Tendance d'expiration des documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__document
+msgid "Document File"
+msgstr "Fichier de documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__name
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__name
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_tree
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Document Name"
+msgstr "Nom du document"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.customer_document_dashboard_graph
+msgid "Document Statistics"
+msgstr "Statistiques des documents"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#, python-format
+msgid "Document Summary"
+msgstr "Résumé du document"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_res_partner_document_tag
+msgid "Document Tag"
+msgstr "Balise de document"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_ir_attachment__document_type
+msgid "Document Type"
+msgstr "Type de document"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__document_url
+msgid "Document URL"
+msgstr "URL du document"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner__document_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_users__document_ids
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Documents"
+msgstr "Documents"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__customer_document_dashboard__state__draft
+#, python-format
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__signature
+msgid "E-Signature"
+msgstr "Signature électronique"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid "Enter days"
+msgstr "Entrez les jours"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__email
+msgid "Enter the email address to receive expiry notifications."
+msgstr "Saisissez l'adresse e-mail pour recevoir les notifications d'expiration."
+
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__name
+msgid "Enter the name of the document."
+msgstr "Entrez le nom du document."
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__is_expired
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__is_expired
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__customer_document__expiry_status__expired
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__customer_document_dashboard__state__expired
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__res_partner_document__expiry_status__expired
+#, python-format
+msgid "Expired"
+msgstr "Expiré"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__expired_docs_count
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__expired_documents
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "Expired Documents"
+msgstr "Documents expirés"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_tree
+msgid "Expired?"
+msgstr "Expiré?"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#, python-format
+msgid "Expiring (Within 7 Days)"
+msgstr "Expiration (dans les 7 jours)"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__customer_document__expiry_status__expiring_soon
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__res_partner_document__expiry_status__expiring_soon
+msgid "Expiring Soon"
+msgstr "Expire bientôt"
+
+#. module: zehntech_customer_document_management
+#: model:ir.actions.act_window,name:zehntech_customer_document_management.action_open_expiring_soon_documents
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__document_count_7_days
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "Expiring Soon (Next 7 Days)"
+msgstr "Expire bientôt (7 prochains jours)"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__res_partner_document__expiry_status__expiring_today
+msgid "Expiring Today"
+msgstr "Expirant aujourd'hui"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__expiry_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__expiry_date
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_tree
+msgid "Expiry Date"
+msgstr "Date d'expiration"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_config_settings__email_notification_time
+msgid "Expiry Notification Date & Time"
+msgstr "Date et heure de notification d'expiration"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid "Expiry Notification Execution Time"
+msgstr "Délai d'exécution de la notification d'expiration"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_tree
+msgid "Expiry Status"
+msgstr "Statut d'expiration"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__expiry_time
+msgid "Expiry Time"
+msgstr "Heure d'expiration"
+
+#. module: zehntech_customer_document_management
+#. odoo-javascript
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#: code:addons/zehntech_customer_document_management/static/src/js/document_dashboard.js:0
+#, python-format
+msgid "Expiry date cannot be in the past. Please select a valid date."
+msgstr "La date d'expiration ne peut pas être passée. Veuillez sélectionner une date valide."
+
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_follower_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_follower_ids
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_partner_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnés (Partenaires)"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_customer_document__activity_type_icon
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icône de police géniale, par exemple fa-tasks"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid "HH:MM (24-hour format)"
+msgstr "HH:MM (format 24 heures)"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__has_message
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__has_message
+msgid "Has Message"
+msgstr "A un message"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category__id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_tag__id
+msgid "ID"
+msgstr "IDENTIFIANT"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_exception_icon
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_exception_icon
+msgid "Icon"
+msgstr "Icône"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_customer_document__activity_exception_icon
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icône pour indiquer une activité exceptionnelle."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_customer_document__message_needaction
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si cette case est cochée, les nouveaux messages nécessitent votre attention."
+
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_customer_document__message_has_error
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si cette case est cochée, certains messages présentent une erreur de livraison."
+
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__image
+msgid "Image"
+msgstr "Image"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__is_expired
+msgid "Indicates whether the document has expired."
+msgstr "Indique si le document a expiré."
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Invalid Email Format! Please enter a valid email."
+msgstr "Format d'e-mail invalide ! Veuillez saisir une adresse e-mail valide."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_is_follower
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_is_follower
+msgid "Is Follower"
+msgstr "Est un suiveur"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document____last_update
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard____last_update
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard____last_update
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document____last_update
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category____last_update
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_tag____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__write_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__write_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__write_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__write_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category__write_uid
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_tag__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__write_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__write_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__write_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__write_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_category__write_date
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_tag__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_main_attachment_id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Pièce jointe principale"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_has_error
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_has_error
+msgid "Message Delivery error"
+msgstr "Erreur de livraison du message"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__my_activity_date_deadline
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Date limite de mon activité"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_date_deadline
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Date limite de la prochaine activité"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_summary
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_summary
+msgid "Next Activity Summary"
+msgstr "Résumé de l'activité suivante"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_type_id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_type_id
+msgid "Next Activity Type"
+msgstr "Type d'activité suivant"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__customer_document__expiry_status__no_expiry
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__res_partner_document__expiry_status__no_expiry
+msgid "No Expiry Date"
+msgstr "Aucune date d'expiration"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__not_expired_docs_count
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__not_expired_documents
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "Not Expired Documents"
+msgstr "Documents non expirés"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__email
+msgid "Notification Email"
+msgstr "E-mail de notification"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid "Notify After Expiry (Days)"
+msgstr "Notifier après expiration (jours)"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid "Notify Before Expiry (Days)"
+msgstr "Notifier avant expiration (jours)"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__notify_expiry
+msgid "Notify on Expiry"
+msgstr "Notifier à l'expiration"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_needaction_counter
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid "Number of days after expiry to send a follow-up notification."
+msgstr "Nombre de jours après l'expiration pour envoyer une notification de suivi."
+
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid "Number of days before expiry to send a notification."
+msgstr "Nombre de jours avant l'expiration pour envoyer une notification."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_has_error_counter
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_has_error_counter
+msgid "Number of errors"
+msgstr "Nombre d'erreurs"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_customer_document__message_needaction_counter
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Nombre de messages nécessitant une action"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_customer_document__message_has_error_counter
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de livraison"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__office
+msgid "Office"
+msgstr "Bureau"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__other
+msgid "Other"
+msgstr "Autre"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#, python-format
+msgid "Outdated Records"
+msgstr "Dossiers obsolètes"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__pdf
+msgid "PDF"
+msgstr "PDF"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_tree
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Paste Google Drive, Dropbox, or OneDrive link here"
+msgstr "Collez le lien Google Drive, Dropbox ou OneDrive ici"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Please upload at least one attachment."
+msgstr "Veuillez télécharger au moins une pièce jointe."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__document_url
+msgid "Provide a URL link to the document if available."
+msgstr "Fournissez un lien URL vers le document si disponible."
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.customer_document_dashboard_view
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_form
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "Refresh Dashboard"
+msgstr "Actualiser le tableau de bord"
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,subject:zehntech_customer_document_management.email_template_document_expiry_today
+msgid "Reminder: Your Document \"{{ object.name }}\" is expiring today"
+msgstr "Rappel : votre document \"{{ object.name }}\" expire aujourd'hui"
+
+#. module: zehntech_customer_document_management
+#: model:mail.template,subject:zehntech_customer_document_management.email_template_document_expiry_before
+msgid ""
+"Reminder: Your Document \"{{ object.name }}\" will expire on {{ "
+"object.expiry_date }}"
+msgstr ""
+"Rappel : votre document \"{{ object.name }}\" expirera le {{ "
+"object.expiry_date }}"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__activity_user_id
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__activity_user_id
+msgid "Responsible User"
+msgstr "Utilisateur responsable"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_document_search
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_document_search_inherit_tags
+msgid "Search by Tags..."
+msgstr "Recherche par balises..."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__category_id
+msgid "Select the category this document belongs to."
+msgstr "Sélectionnez la catégorie à laquelle appartient ce document."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__partner_id
+msgid "Select the customer to whom this document belongs."
+msgstr "Sélectionnez le client à qui appartient ce document."
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.res_config_settings_view_form_inherit
+msgid ""
+"Set the time (in 24-hour format) when expiry notifications should be sent "
+"daily."
+msgstr ""
+"Définissez l'heure (au format 24 heures) à laquelle les notifications "
+"d'expiration doivent être envoyées tous les jours."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__expiry_status
+msgid "Shows the expiry status of the document."
+msgstr "Affiche l'état d'expiration du document."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__signature
+msgid "Signature"
+msgstr "Signature"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__state
+msgid "State"
+msgstr "État"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__expiry_status
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__name
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__expiry_status
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_document_tree
+msgid "Status"
+msgstr "Statut"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_customer_document__activity_state
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Statut basé sur les activités\n"
+"En retard : la date d'échéance est déjà dépassée\n"
+"Aujourd'hui : la date de l'activité est aujourd'hui\n"
+"Planifié : Activités futures."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document_tag__name
+msgid "Tag Name"
+msgstr "Nom de la balise"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__tags
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__tags
+msgid "Tags"
+msgstr "Balises"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_document_search
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_document_search_inherit_tags
+msgid "Tags doc"
+msgstr "Document de balises"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__expiry_date
+msgid "The date when this document expires."
+msgstr "La date à laquelle ce document expire."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__total_docs_count
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__total_documents
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "Total Documents"
+msgstr "Total des documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_customer_document__activity_exception_decoration
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type d'activité d'exception enregistrée."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_config_settings__unsplash_access_key
+msgid "Unsplash Access Key"
+msgstr "Clé d'accès"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_config_settings__unsplash_app_id
+msgid "Unsplash App ID"
+msgstr "ID d'application"
+
+#. module: zehntech_customer_document_management
+#: model:ir.actions.server,name:zehntech_customer_document_management.ir_cron_update_document_dashboard_ir_actions_server
+#: model:ir.cron,cron_name:zehntech_customer_document_management.ir_cron_update_document_dashboard
+msgid "Update Document Expiry Dashboard"
+msgstr "Mettre à jour le tableau de bord d'expiration des documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__signature
+msgid "Upload an electronic signature for this document."
+msgstr "Téléchargez une signature électronique pour ce document."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__attachment
+msgid "Upload the document file as an attachment."
+msgstr "Téléchargez le fichier du document en pièce jointe."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__customer_document__expiry_status__valid
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__res_partner_document__expiry_status__valid
+msgid "Valid"
+msgstr "Valide"
+
+
+
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#, python-format
+msgid "Valid Documents"
+msgstr "Documents valides"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__dashboard_title
+msgid "Dashboard Title"
+msgstr "Titre du tableau de bord"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#, python-format
+msgid "Expiry date cannot be today's date. Please choose a future date."
+msgstr "La date d'expiration ne peut pas être la date d'aujourd'hui. Veuillez choisir une date ultérieure."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__pdf
+msgid "PDF"
+msgstr "PDF"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__space1
+msgid "Space1"
+msgstr "Espace1"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__space2
+msgid "Space2"
+msgstr "Espace2"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__space3
+msgid "Space3"
+msgstr "Espace3"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_dashboard__spacer
+msgid "Spacer"
+msgstr "Entretoise"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid ""
+"You cannot set the expiry date to today or a past date. Please select a "
+"future date."
+msgstr ""
+"Vous ne pouvez pas définir la date d'expiration sur aujourd'hui ou une date passée. Veuillez sélectionner une date."
+"date future."
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid ""
+"You cannot set today's date as the expiry date. Please select a future date."
+msgstr ""
+"Vous ne pouvez pas définir la date d'aujourd'hui comme date d'expiration. Veuillez sélectionner une date ultérieure."
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+#, python-format
+msgid ""
+"You cannot upload a document with today's expiry date. Please choose a "
+"future date."
+msgstr ""
+"Vous ne pouvez pas télécharger un document dont la date d'expiration est aujourd'hui. Veuillez choisir une"
+"date future."
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "⏰ Expiring Soon (7 Days)"
+msgstr "⏰ Expire bientôt (7 jours)"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "⛔ Expired Documents"
+msgstr "⛔ Documents expirés"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "✅ Not Expired Documents"
+msgstr "✅ Documents non expirés"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "📄 Total Documents"
+msgstr "📄 Total des documents"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "📊 Document Status Overview"
+msgstr "📊 Aperçu de l'état du document"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_dashboard_tree
+msgid "🧾 Document Count"
+msgstr "🧾 Nombre de documents"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Document"
+msgstr "Document"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner__document_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_users__document_ids
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Documents"
+msgstr "Documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__image
+msgid "Image"
+msgstr "Image"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Only Google Drive, Dropbox, or OneDrive URLs are allowed."
+msgstr "Seules les URL Google Drive, Dropbox ou OneDrive sont autorisées."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__pdf
+msgid "PDF"
+msgstr "PDF"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__signature
+msgid "Signature"
+msgstr "Signature"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "The document URL is not reachable. Please check the link."
+msgstr "L'URL du document est inaccessible. Veuillez vérifier le lien."
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "The provided document URL is not reachable or does not exist."
+msgstr "L'URL du document fourni n'est pas accessible ou n'existe pas."
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "URL must start with http:// or https://"
+msgstr "L'URL doit commencer par http:// ou https://"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_config_settings.py:0
+#, python-format
+msgid "You cannot set a past date and time for expiry notifications."
+msgstr "Vous ne pouvez pas définir une date et une heure passées pour les notifications d'expiration."
+
+
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Could not verify URL: %s"
+msgstr "Impossible de vérifier l'URL : %s"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Document"
+msgstr "Document"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner__document_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_users__document_ids
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Documents"
+msgstr "Documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__image
+msgid "Image"
+msgstr "Image"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Invalid OneDrive/SharePoint URL format."
+msgstr "Format d'URL OneDrive/SharePoint non valide."
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Only Google Drive, OneDrive/SharePoint, and Dropbox URLs are allowed."
+msgstr "Seules les URL Google Drive, OneDrive/SharePoint et Dropbox sont autorisées."
+
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "This OneDrive/SharePoint link does not exist or is inaccessible."
+msgstr "Ce lien OneDrive/SharePoint n'existe pas ou est inaccessible."
+
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "URL cannot be empty."
+msgstr "L'URL ne peut pas être vide."
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "URL does not exist (HTTP %s)"
+msgstr "L'URL n'existe pas (HTTP %s)"
+
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Are you sure you want to delete this document ?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce document ?"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Are you sure you want to save this document?"
+msgstr "Êtes-vous sûr de vouloir enregistrer ce document ?"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Discard"
+msgstr "Jeter"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner__document_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_users__document_ids
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Documents"
+msgstr "Documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__pdf
+msgid "PDF"
+msgstr "PDF"
+
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Save"
+msgstr "Sauvegarder"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__signature
+msgid "Signature"
+msgstr "Signature"
+
+
+#. module: zehntech_customer_document_management
+#: model:ir.model,name:zehntech_customer_document_management.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Document"
+msgstr "Document"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner__document_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_users__document_ids
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Documents"
+msgstr "Documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__image
+msgid "Image"
+msgstr "Image"
+
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document__message_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__pdf
+msgid "PDF"
+msgstr "PDF"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_customer_document_signature_wizard__signature
+msgid "Signature"
+msgstr "Signature"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Success"
+msgstr "Succès"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Warning"
+msgstr "Avertissement"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "You are creating someone else's document!"
+msgstr "Vous créez le document de quelqu'un d'autre !"
+
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "Your document was saved successfully!"
+msgstr "Votre document a été enregistré avec succès !"
+
+
+
+
+
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner__document_ids
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_users__document_ids
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "Documents"
+msgstr "Documents"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields.selection,name:zehntech_customer_document_management.selection__ir_attachment__document_type__pdf
+msgid "PDF"
+msgstr "PDF"
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_customer_document_tree
+msgid "Partner"
+msgstr "Partner"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,field_description:zehntech_customer_document_management.field_res_partner_document__show_warning
+msgid "Show Warning"
+msgstr "Afficher l'avertissement"
+
+#. module: zehntech_customer_document_management
+#: model:ir.model.fields,help:zehntech_customer_document_management.field_res_partner_document__show_warning
+msgid "Technical field to determine if warning should be shown"
+msgstr "Domaine technique pour déterminer si un avertissement doit être affiché"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "You are not allowed to create a document for another customer."
+msgstr "Vous n'êtes pas autorisé à créer un document pour un autre client."
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "You are not allowed to delete a document that is not yours."
+msgstr "Vous n'êtes pas autorisé à supprimer un document qui ne vous appartient pas."
+
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+#, python-format
+msgid "You are not allowed to modify a document that is not yours."
+msgstr "Vous n'êtes pas autorisé à modifier un document qui n'est pas le vôtre."
+
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/document_dashboard.py:0
+msgid "Rejected"
+msgstr "Rejeté"
+
+#. module: zehntech_customer_document_management
+#. odoo-python
+#: code:addons/zehntech_customer_document_management/models/res_partner_document.py:0
+msgid "You cannot change the customer of an existing document"
+msgstr "Vous ne pouvez pas modifier le client d'un document existant"
+
+
+#. module: zehntech_customer_document_management
+#: model_terms:ir.ui.view,arch_db:zehntech_customer_document_management.view_res_partner_form_inherit_document
+msgid "ℹ️ Maximum file size allowed is 10MB."
+msgstr "ℹ️ La taille maximale du fichier autorisée est de 10 Mo."
