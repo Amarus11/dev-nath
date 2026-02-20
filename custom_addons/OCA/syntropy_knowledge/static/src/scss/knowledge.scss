@@ -1,0 +1,85 @@
+/* ══════════════════════════════════════════════════════════════
+   Syntropy Knowledge - Backend Styles
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Kanban cards ─────────────────────────────────────────── */
+.o_knowledge_kanban .o_kanban_record {
+    border-left: 4px solid transparent;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+}
+
+/* Estado colores en borde izquierdo del kanban */
+.o_knowledge_kanban .o_kanban_record .badge.text-bg-success {
+    background-color: #28a745 !important;
+}
+
+.o_knowledge_kanban .o_kanban_record .badge.text-bg-warning {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.o_knowledge_kanban .o_kanban_record .badge.text-bg-info {
+    background-color: #17a2b8 !important;
+}
+
+/* ── Article form ─────────────────────────────────────────── */
+.o_form_view .o_knowledge_content {
+    min-height: 400px;
+}
+
+/* ── Stat buttons ─────────────────────────────────────────── */
+.o_form_view .oe_button_box .oe_stat_button .o_stat_value {
+    font-weight: 700;
+}
+
+/* ── Category kanban ──────────────────────────────────────── */
+.o_knowledge_category_kanban .o_kanban_record {
+    text-align: center;
+    padding: 16px;
+    transition: transform 0.15s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* ── Tags inline ──────────────────────────────────────────── */
+.o_field_many2many_tags .badge {
+    font-size: 0.75em;
+}
+
+/* ── Favorite star ────────────────────────────────────────── */
+.o_field_boolean_favorite .o_favorite {
+    font-size: 1.2em;
+}
+
+/* ── Version history ──────────────────────────────────────── */
+.o_list_view .btn-link[name="action_restore_version"] {
+    color: #6c63ff;
+    font-weight: 600;
+
+    &:hover {
+        color: #4a43cc;
+    }
+}
+
+/* ── Empty state ──────────────────────────────────────────── */
+.o_view_nocontent .o_view_nocontent_smiling_face {
+    font-size: 1.2em;
+}
+
+/* ── Priority stars ───────────────────────────────────────── */
+.o_priority .o_priority_star {
+    font-size: 1.1em;
+}
+
+/* ── Responsive adjustments ───────────────────────────────── */
+@media (max-width: 768px) {
+    .o_knowledge_kanban .o_kanban_record {
+        margin-bottom: 8px;
+    }
+}

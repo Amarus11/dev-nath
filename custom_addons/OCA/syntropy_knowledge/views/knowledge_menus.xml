@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ════════════════════════════════════════════════════════════
+         MENÚ PRINCIPAL: KNOWLEDGE BASE
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- Menú raíz de la aplicación -->
+    <menuitem id="menu_knowledge_root"
+        name="Base de Conocimiento"
+        web_icon="syntropy_knowledge,static/description/icon.png"
+        sequence="45"
+        groups="syntropy_knowledge.group_knowledge_reader"
+    />
+
+    <!-- ── Artículos ─────────────────────────────────────────────── -->
+    <menuitem id="menu_knowledge_articles"
+        name="Artículos"
+        parent="menu_knowledge_root"
+        sequence="10"
+    />
+    <menuitem id="menu_knowledge_articles_all"
+        name="Todos los Artículos"
+        parent="menu_knowledge_articles"
+        action="knowledge_article_action"
+        sequence="10"
+    />
+    <menuitem id="menu_knowledge_articles_my"
+        name="Mis Artículos"
+        parent="menu_knowledge_articles"
+        action="knowledge_article_action_my"
+        sequence="20"
+    />
+    <menuitem id="menu_knowledge_articles_favorites"
+        name="Mis Favoritos"
+        parent="menu_knowledge_articles"
+        action="knowledge_article_action_favorites"
+        sequence="30"
+    />
+    <menuitem id="menu_knowledge_articles_review"
+        name="Pendientes de Revisión"
+        parent="menu_knowledge_articles"
+        action="knowledge_article_action_review"
+        sequence="40"
+        groups="syntropy_knowledge.group_knowledge_manager"
+    />
+
+    <!-- ── Configuración ─────────────────────────────────────────── -->
+    <menuitem id="menu_knowledge_config"
+        name="Configuración"
+        parent="menu_knowledge_root"
+        sequence="90"
+        groups="syntropy_knowledge.group_knowledge_manager"
+    />
+    <menuitem id="menu_knowledge_config_categories"
+        name="Categorías"
+        parent="menu_knowledge_config"
+        action="knowledge_category_action"
+        sequence="10"
+    />
+    <menuitem id="menu_knowledge_config_tags"
+        name="Etiquetas"
+        parent="menu_knowledge_config"
+        action="knowledge_tag_action"
+        sequence="20"
+    />
+
+</odoo>

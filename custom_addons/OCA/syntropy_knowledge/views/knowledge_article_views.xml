@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ════════════════════════════════════════════════════════════
+         ARTICLE VIEWS
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- ── List View ─────────────────────────────────────────────── -->
+    <record id="knowledge_article_view_list" model="ir.ui.view">
+        <field name="name">knowledge.article.list</field>
+        <field name="model">knowledge.article</field>
+        <field name="arch" type="xml">
+            <list multi_edit="1"
+                  decoration-muted="state == 'archived'"
+                  decoration-info="state == 'draft'"
+                  decoration-warning="state == 'review'"
+                  decoration-success="state == 'published'">
+                <field name="sequence" widget="handle"/>
+                <field name="icon"/>
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="state" widget="badge"
+                    decoration-success="state == 'published'"
+                    decoration-warning="state == 'review'"
+                    decoration-info="state == 'draft'"
+                    decoration-muted="state == 'archived'"
+                />
+                <field name="priority" widget="priority"/>
+                <field name="author_id" widget="many2one_avatar_user"/>
+                <field name="write_date" string="Modificado"/>
+                <field name="view_count" string="Vistas"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── Form View ─────────────────────────────────────────────── -->
+    <record id="knowledge_article_view_form" model="ir.ui.view">
+        <field name="name">knowledge.article.form</field>
+        <field name="model">knowledge.article</field>
+        <field name="arch" type="xml">
+            <form string="Artículo de Conocimiento">
+                <header>
+                    <button name="action_draft" string="Borrador"
+                        type="object"
+                        invisible="state == 'draft'"
+                        class="btn-secondary"
+                        groups="syntropy_knowledge.group_knowledge_editor"
+                    />
+                    <button name="action_review" string="Enviar a Revisión"
+                        type="object"
+                        invisible="state != 'draft'"
+                        class="btn-primary"
+                        groups="syntropy_knowledge.group_knowledge_editor"
+                    />
+                    <button name="action_publish" string="Publicar"
+                        type="object"
+                        invisible="state != 'review'"
+                        class="btn-success"
+                        groups="syntropy_knowledge.group_knowledge_manager"
+                    />
+                    <button name="action_archive_article" string="Archivar"
+                        type="object"
+                        invisible="state == 'archived'"
+                        class="btn-secondary"
+                        groups="syntropy_knowledge.group_knowledge_manager"
+                        confirm="¿Estás seguro de archivar este artículo?"
+                    />
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="draft,review,published"
+                    />
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_view_versions" type="object"
+                            class="oe_stat_button" icon="fa-history"
+                            groups="syntropy_knowledge.group_knowledge_editor">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="version_count"/>
+                                </span>
+                                <span class="o_stat_text">Versiones</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-eye" disabled="1">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="view_count"/>
+                                </span>
+                                <span class="o_stat_text">Vistas</span>
+                            </div>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-heart" disabled="1">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="favorite_count"/>
+                                </span>
+                                <span class="o_stat_text">Favoritos</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget
+                        name="web_ribbon"
+                        title="Archivado"
+                        bg_color="bg-danger"
+                        invisible="active"
+                    />
+                    <field name="active" invisible="1"/>
+                    <field
+                        name="cover_image"
+                        widget="image"
+                        class="oe_avatar"
+                        style="z-index:1"
+                    />
+                    <div class="oe_title">
+                        <div class="d-flex align-items-center gap-2">
+                            <field name="icon" class="d-inline" style="font-size: 2em;"/>
+                            <field name="is_favorite" widget="boolean_favorite" nolabel="1"/>
+                        </div>
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Título del artículo"/>
+                        </h1>
+                        <field name="summary" placeholder="Breve resumen del artículo..."
+                            class="text-muted fst-italic"/>
+                    </div>
+                    <group>
+                        <group string="Clasificación">
+                            <field name="category_id"
+                                context="{'form_view_ref': 'syntropy_knowledge.knowledge_category_view_form'}"
+                            />
+                            <field name="tag_ids" widget="many2many_tags"
+                                options="{'color_field': 'color', 'no_create_edit': False}"
+                            />
+                            <field name="priority" widget="priority"/>
+                        </group>
+                        <group string="Autoría">
+                            <field name="author_id" widget="many2one_avatar_user"/>
+                            <field name="reviewer_id" widget="many2one_avatar_user"/>
+                            <field name="publish_date" invisible="state != 'published'"/>
+                            <field name="current_version"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Contenido" name="content">
+                            <field name="content" widget="html"
+                                placeholder="Escribe aquí el contenido del artículo..."
+                                options="{'collaborative': True, 'codeview': True}"
+                            />
+                        </page>
+                        <page string="Historial de Versiones" name="versions"
+                            groups="syntropy_knowledge.group_knowledge_editor">
+                            <field name="version_ids">
+                                <list create="0" edit="0">
+                                    <field name="name"/>
+                                    <field name="version_number"/>
+                                    <field name="author_id" widget="many2one_avatar_user"/>
+                                    <field name="create_date"/>
+                                    <button name="action_restore_version"
+                                        type="object"
+                                        string="Restaurar"
+                                        icon="fa-undo"
+                                        confirm="¿Restaurar esta versión? El contenido actual será reemplazado."
+                                        groups="syntropy_knowledge.group_knowledge_manager"
+                                    />
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── Kanban View ───────────────────────────────────────────── -->
+    <record id="knowledge_article_view_kanban" model="ir.ui.view">
+        <field name="name">knowledge.article.kanban</field>
+        <field name="model">knowledge.article</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="category_id"
+                    class="o_knowledge_kanban"
+                    records_draggable="1"
+                    quick_create="0">
+                <field name="name"/>
+                <field name="icon"/>
+                <field name="state"/>
+                <field name="priority"/>
+                <field name="category_id"/>
+                <field name="author_id"/>
+                <field name="color"/>
+                <field name="is_favorite"/>
+                <field name="tag_ids"/>
+                <field name="view_count"/>
+                <field name="cover_image"/>
+                <field name="summary"/>
+                <progressbar field="state"
+                    colors='{"draft": "info", "review": "warning", "published": "success", "archived": "muted"}'
+                />
+                <templates>
+                    <t t-name="card" class="flex-row">
+                        <aside>
+                            <field name="cover_image" widget="image"
+                                class="o_kanban_image"
+                                options="{'size': [80, 80]}"
+                                invisible="not cover_image"
+                            />
+                        </aside>
+                        <main>
+                            <div class="d-flex align-items-center gap-1 mb-1">
+                                <span t-out="record.icon.value" style="font-size: 1.3em;"/>
+                                <field name="name" class="fw-bold"/>
+                                <field name="is_favorite" widget="boolean_favorite" nolabel="1"/>
+                            </div>
+                            <div class="text-muted small mb-1" t-if="record.summary.raw_value">
+                                <field name="summary"/>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <field name="priority" widget="priority"/>
+                                <field name="state" widget="badge"
+                                    decoration-success="state == 'published'"
+                                    decoration-warning="state == 'review'"
+                                    decoration-info="state == 'draft'"
+                                    decoration-muted="state == 'archived'"
+                                />
+                            </div>
+                            <field name="tag_ids" widget="many2many_tags"
+                                options="{'color_field': 'color'}"/>
+                            <footer class="pt-1">
+                                <field name="author_id" widget="many2one_avatar_user"/>
+                                <span class="ms-auto text-muted small">
+                                    <i class="fa fa-eye me-1"/>
+                                    <field name="view_count"/>
+                                </span>
+                            </footer>
+                        </main>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ── Search View ───────────────────────────────────────────── -->
+    <record id="knowledge_article_view_search" model="ir.ui.view">
+        <field name="name">knowledge.article.search</field>
+        <field name="model">knowledge.article</field>
+        <field name="arch" type="xml">
+            <search string="Buscar artículos">
+                <field name="name" string="Título"/>
+                <field name="summary"/>
+                <field name="content"/>
+                <field name="category_id"/>
+                <field name="tag_ids"/>
+                <field name="author_id"/>
+                <separator/>
+                <filter string="Mis artículos" name="my_articles"
+                    domain="[('author_id', '=', uid)]"/>
+                <filter string="Mis favoritos" name="my_favorites"
+                    domain="[('favorite_ids.user_id', '=', uid)]"/>
+                <separator/>
+                <filter string="Borrador" name="state_draft"
+                    domain="[('state', '=', 'draft')]"/>
+                <filter string="En revisión" name="state_review"
+                    domain="[('state', '=', 'review')]"/>
+                <filter string="Publicados" name="state_published"
+                    domain="[('state', '=', 'published')]"/>
+                <filter string="Archivados" name="state_archived"
+                    domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Prioridad alta" name="priority_high"
+                    domain="[('priority', 'in', ['1', '2'])]"/>
+                <filter string="Recientes (7 días)" name="recent"
+                    domain="[('write_date', '>=', (context_today() - datetime.timedelta(days=7)).strftime('%%Y-%%m-%%d'))]"/>
+                <separator/>
+                <group expand="0" string="Agrupar por">
+                    <filter string="Categoría" name="group_category"
+                        context="{'group_by': 'category_id'}"/>
+                    <filter string="Estado" name="group_state"
+                        context="{'group_by': 'state'}"/>
+                    <filter string="Autor" name="group_author"
+                        context="{'group_by': 'author_id'}"/>
+                    <filter string="Prioridad" name="group_priority"
+                        context="{'group_by': 'priority'}"/>
+                    <filter string="Fecha de modificación" name="group_write"
+                        context="{'group_by': 'write_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ── Actions ───────────────────────────────────────────────── -->
+
+    <!-- Acción principal: Todos los artículos -->
+    <record id="knowledge_article_action" model="ir.actions.act_window">
+        <field name="name">Artículos</field>
+        <field name="res_model">knowledge.article</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="knowledge_article_view_search"/>
+        <field name="context">{'search_default_state_published': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea tu primer artículo de conocimiento
+            </p>
+            <p>
+                Comparte conocimiento valioso con tu equipo. Organiza con categorías
+                y etiquetas para que todos encuentren lo que necesitan.
+            </p>
+        </field>
+    </record>
+
+    <!-- Acción: Mis artículos -->
+    <record id="knowledge_article_action_my" model="ir.actions.act_window">
+        <field name="name">Mis Artículos</field>
+        <field name="res_model">knowledge.article</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="knowledge_article_view_search"/>
+        <field name="context">{'search_default_my_articles': 1}</field>
+    </record>
+
+    <!-- Acción: Mis favoritos -->
+    <record id="knowledge_article_action_favorites" model="ir.actions.act_window">
+        <field name="name">Mis Favoritos</field>
+        <field name="res_model">knowledge.article</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="knowledge_article_view_search"/>
+        <field name="context">{'search_default_my_favorites': 1}</field>
+    </record>
+
+    <!-- Acción: Pendientes de revisión -->
+    <record id="knowledge_article_action_review" model="ir.actions.act_window">
+        <field name="name">Pendientes de Revisión</field>
+        <field name="res_model">knowledge.article</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="search_view_id" ref="knowledge_article_view_search"/>
+        <field name="domain">[('state', '=', 'review')]</field>
+    </record>
+
+    <!-- ── Version Views ─────────────────────────────────────────── -->
+
+    <record id="knowledge_article_version_view_list" model="ir.ui.view">
+        <field name="name">knowledge.article.version.list</field>
+        <field name="model">knowledge.article.version</field>
+        <field name="arch" type="xml">
+            <list create="0">
+                <field name="article_id"/>
+                <field name="name"/>
+                <field name="version_number"/>
+                <field name="author_id" widget="many2one_avatar_user"/>
+                <field name="create_date"/>
+                <button name="action_restore_version"
+                    type="object"
+                    string="Restaurar"
+                    icon="fa-undo"
+                    groups="syntropy_knowledge.group_knowledge_manager"
+                />
+            </list>
+        </field>
+    </record>
+
+    <record id="knowledge_article_version_view_form" model="ir.ui.view">
+        <field name="name">knowledge.article.version.form</field>
+        <field name="model">knowledge.article.version</field>
+        <field name="arch" type="xml">
+            <form string="Versión del Artículo" create="0" edit="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="article_id"/>
+                            <field name="name"/>
+                            <field name="version_number"/>
+                        </group>
+                        <group>
+                            <field name="author_id" widget="many2one_avatar_user"/>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Contenido de esta versión"/>
+                    <field name="content" readonly="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

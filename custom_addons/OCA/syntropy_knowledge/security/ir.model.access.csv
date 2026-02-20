@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_knowledge_category_reader,knowledge.category.reader,model_knowledge_category,group_knowledge_reader,1,0,0,0
+access_knowledge_category_editor,knowledge.category.editor,model_knowledge_category,group_knowledge_editor,1,1,0,0
+access_knowledge_category_manager,knowledge.category.manager,model_knowledge_category,group_knowledge_manager,1,1,1,1
+access_knowledge_tag_reader,knowledge.tag.reader,model_knowledge_tag,group_knowledge_reader,1,0,0,0
+access_knowledge_tag_editor,knowledge.tag.editor,model_knowledge_tag,group_knowledge_editor,1,1,1,0
+access_knowledge_tag_manager,knowledge.tag.manager,model_knowledge_tag,group_knowledge_manager,1,1,1,1
+access_knowledge_article_reader,knowledge.article.reader,model_knowledge_article,group_knowledge_reader,1,0,0,0
+access_knowledge_article_editor,knowledge.article.editor,model_knowledge_article,group_knowledge_editor,1,1,1,0
+access_knowledge_article_manager,knowledge.article.manager,model_knowledge_article,group_knowledge_manager,1,1,1,1
+access_knowledge_article_version_reader,knowledge.article.version.reader,model_knowledge_article_version,group_knowledge_reader,1,0,0,0
+access_knowledge_article_version_editor,knowledge.article.version.editor,model_knowledge_article_version,group_knowledge_editor,1,0,0,0
+access_knowledge_article_version_manager,knowledge.article.version.manager,model_knowledge_article_version,group_knowledge_manager,1,1,1,1
+access_knowledge_favorite_reader,knowledge.favorite.reader,model_knowledge_favorite,group_knowledge_reader,1,1,1,1
+access_knowledge_favorite_editor,knowledge.favorite.editor,model_knowledge_favorite,group_knowledge_editor,1,1,1,1
+access_knowledge_favorite_manager,knowledge.favorite.manager,model_knowledge_favorite,group_knowledge_manager,1,1,1,1

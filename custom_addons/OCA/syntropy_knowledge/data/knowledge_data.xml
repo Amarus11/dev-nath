@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- ════════════════════════════════════════════════════════════
+         DATOS INICIALES
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- Categorías base -->
+    <record id="category_general" model="knowledge.category">
+        <field name="name">General</field>
+        <field name="icon">📚</field>
+        <field name="description">Artículos de conocimiento general</field>
+        <field name="sequence">1</field>
+        <field name="color">1</field>
+    </record>
+
+    <record id="category_processes" model="knowledge.category">
+        <field name="name">Procesos</field>
+        <field name="icon">⚙️</field>
+        <field name="description">Documentación de procesos organizacionales</field>
+        <field name="sequence">2</field>
+        <field name="color">2</field>
+    </record>
+
+    <record id="category_policies" model="knowledge.category">
+        <field name="name">Políticas</field>
+        <field name="icon">📋</field>
+        <field name="description">Políticas y normativas de la empresa</field>
+        <field name="sequence">3</field>
+        <field name="color">4</field>
+    </record>
+
+    <record id="category_tech" model="knowledge.category">
+        <field name="name">Tecnología</field>
+        <field name="icon">💻</field>
+        <field name="description">Documentación técnica y guías de TI</field>
+        <field name="sequence">4</field>
+        <field name="color">5</field>
+    </record>
+
+    <record id="category_onboarding" model="knowledge.category">
+        <field name="name">Onboarding</field>
+        <field name="icon">🚀</field>
+        <field name="description">Material de inducción para nuevos integrantes</field>
+        <field name="sequence">5</field>
+        <field name="color">10</field>
+    </record>
+
+    <record id="category_faq" model="knowledge.category">
+        <field name="name">FAQ</field>
+        <field name="icon">❓</field>
+        <field name="description">Preguntas frecuentes</field>
+        <field name="sequence">6</field>
+        <field name="color">3</field>
+    </record>
+
+    <!-- Etiquetas predeterminadas -->
+    <record id="tag_important" model="knowledge.tag">
+        <field name="name">Importante</field>
+        <field name="color">1</field>
+    </record>
+
+    <record id="tag_tutorial" model="knowledge.tag">
+        <field name="name">Tutorial</field>
+        <field name="color">2</field>
+    </record>
+
+    <record id="tag_reference" model="knowledge.tag">
+        <field name="name">Referencia</field>
+        <field name="color">4</field>
+    </record>
+
+    <record id="tag_howto" model="knowledge.tag">
+        <field name="name">Cómo hacer</field>
+        <field name="color">5</field>
+    </record>
+
+    <record id="tag_best_practice" model="knowledge.tag">
+        <field name="name">Buena práctica</field>
+        <field name="color">10</field>
+    </record>
+
+    <record id="tag_draft" model="knowledge.tag">
+        <field name="name">En progreso</field>
+        <field name="color">3</field>
+    </record>
+
+    <!-- Artículo de bienvenida -->
+    <record id="article_welcome" model="knowledge.article">
+        <field name="name">Bienvenido a la Base de Conocimiento</field>
+        <field name="icon">👋</field>
+        <field name="category_id" ref="category_general"/>
+        <field name="tag_ids" eval="[(4, ref('tag_important'))]"/>
+        <field name="priority">1</field>
+        <field name="state">published</field>
+        <field name="publish_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
+        <field name="summary">Guía introductoria a la base de conocimiento de Syntropy</field>
+        <field name="content"><![CDATA[
+<div class="container py-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>👋 ¡Bienvenido a la Base de Conocimiento de Syntropy!</h2>
+            <p class="lead">
+                Este es tu espacio centralizado para documentar, compartir y encontrar
+                todo el conocimiento de la organización.
+            </p>
+            <hr/>
+            <h3>🎯 ¿Qué puedes hacer aquí?</h3>
+            <ul>
+                <li><strong>Crear artículos</strong> - Documenta procesos, guías y conocimiento valioso</li>
+                <li><strong>Organizar por categorías</strong> - Usa categorías jerárquicas para mantener todo ordenado</li>
+                <li><strong>Etiquetar contenido</strong> - Las etiquetas te permiten clasificación transversal</li>
+                <li><strong>Marcar favoritos</strong> - Guarda los artículos que más consultas con ⭐</li>
+                <li><strong>Buscar y filtrar</strong> - Encuentra rápidamente lo que necesitas</li>
+                <li><strong>Colaborar</strong> - Usa el chatter para discutir y mejorar artículos</li>
+            </ul>
+            <h3>📝 Flujo de trabajo</h3>
+            <ol>
+                <li><strong>Borrador</strong> → Crea y edita tu artículo libremente</li>
+                <li><strong>En Revisión</strong> → Envíalo para revisión del equipo</li>
+                <li><strong>Publicado</strong> → Disponible para toda la organización</li>
+            </ol>
+            <h3>🏷️ Categorías disponibles</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>📚 General</td><td>Conocimiento general de la organización</td></tr>
+                    <tr><td>⚙️ Procesos</td><td>Documentación de procesos internos</td></tr>
+                    <tr><td>📋 Políticas</td><td>Normativas y políticas corporativas</td></tr>
+                    <tr><td>💻 Tecnología</td><td>Guías técnicas y documentación de TI</td></tr>
+                    <tr><td>🚀 Onboarding</td><td>Material de bienvenida e inducción</td></tr>
+                    <tr><td>❓ FAQ</td><td>Preguntas frecuentes y respuestas</td></tr>
+                </tbody>
+            </table>
+            <div class="alert alert-info">
+                <strong>💡 Tip:</strong> Usa la vista Kanban para ver tus artículos organizados
+                por categoría, y la búsqueda avanzada para filtrar por etiquetas, autor o estado.
+            </div>
+        </div>
+    </div>
+</div>
+        ]]></field>
+    </record>
+
+</odoo>

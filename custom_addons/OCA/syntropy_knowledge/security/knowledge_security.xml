@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ════════════════════════════════════════════════════════════
+         Grupos de seguridad para Knowledge
+         ════════════════════════════════════════════════════════════ -->
+
+    <record id="module_category_knowledge" model="ir.module.category">
+        <field name="name">Knowledge</field>
+        <field name="description">Gestión del conocimiento organizacional</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- Grupo: Lector -->
+    <record id="group_knowledge_reader" model="res.groups">
+        <field name="name">Lector</field>
+        <field name="category_id" ref="module_category_knowledge"/>
+        <field name="comment">
+            Puede ver artículos publicados y categorías.
+            No puede crear ni editar contenido.
+        </field>
+    </record>
+
+    <!-- Grupo: Editor (hereda de Lector) -->
+    <record id="group_knowledge_editor" model="res.groups">
+        <field name="name">Editor</field>
+        <field name="category_id" ref="module_category_knowledge"/>
+        <field name="implied_ids" eval="[(4, ref('group_knowledge_reader'))]"/>
+        <field name="comment">
+            Puede crear, editar y enviar a revisión artículos.
+            Puede gestionar etiquetas.
+        </field>
+    </record>
+
+    <!-- Grupo: Administrador (hereda de Editor) -->
+    <record id="group_knowledge_manager" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="module_category_knowledge"/>
+        <field name="implied_ids" eval="[(4, ref('group_knowledge_editor'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="comment">
+            Control total: publicar, archivar, eliminar artículos.
+            Gestionar categorías, etiquetas y configuración.
+        </field>
+    </record>
+
+    <!-- ════════════════════════════════════════════════════════════
+         Reglas de registro (Record Rules)
+         ════════════════════════════════════════════════════════════ -->
+
+    <!-- Lectores solo ven artículos publicados -->
+    <record id="rule_article_reader" model="ir.rule">
+        <field name="name">Knowledge Article: Reader sees published</field>
+        <field name="model_id" ref="model_knowledge_article"/>
+        <field name="domain_force">[('state', '=', 'published')]</field>
+        <field name="groups" eval="[(4, ref('group_knowledge_reader'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Editores ven todos los artículos activos -->
+    <record id="rule_article_editor" model="ir.rule">
+        <field name="name">Knowledge Article: Editor sees all active</field>
+        <field name="model_id" ref="model_knowledge_article"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_knowledge_editor'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Administradores tienen acceso total -->
+    <record id="rule_article_manager" model="ir.rule">
+        <field name="name">Knowledge Article: Manager full access</field>
+        <field name="model_id" ref="model_knowledge_article"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('group_knowledge_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Favoritos: cada usuario solo ve los suyos -->
+    <record id="rule_favorite_own" model="ir.rule">
+        <field name="name">Knowledge Favorite: Own only</field>
+        <field name="model_id" ref="model_knowledge_favorite"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('group_knowledge_reader'))]"/>
+    </record>
+
+    <!-- Compañía multi-company -->
+    <record id="rule_article_company" model="ir.rule">
+        <field name="name">Knowledge Article: Multi-company</field>
+        <field name="model_id" ref="model_knowledge_article"/>
+        <field name="domain_force">
+            ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+        </field>
+    </record>
+
+    <record id="rule_category_company" model="ir.rule">
+        <field name="name">Knowledge Category: Multi-company</field>
+        <field name="model_id" ref="model_knowledge_category"/>
+        <field name="domain_force">
+            ['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]
+        </field>
+    </record>
+
+</odoo>
