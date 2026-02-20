@@ -13,7 +13,7 @@
             <list editable="bottom">
                 <field name="name"/>
                 <field name="color" widget="color_picker"/>
-                <field name="article_count"/>
+                <field name="article_count" string="Documentos"/>
             </list>
         </field>
     </record>
@@ -31,7 +31,7 @@
                             <field name="color" widget="color_picker"/>
                         </group>
                         <group>
-                            <field name="article_count"/>
+                            <field name="article_count" string="Documentos"/>
                         </group>
                     </group>
                 </sheet>
@@ -62,7 +62,7 @@
                 Crea tu primera etiqueta
             </p>
             <p>
-                Las etiquetas permiten clasificar artículos de forma transversal.
+                Las etiquetas permiten clasificar documentos de forma transversal.
             </p>
         </field>
     </record>

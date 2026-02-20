@@ -10,7 +10,7 @@ class KnowledgeFavorite(models.Model):
     _name = "knowledge.favorite"
     _description = "Knowledge Favorite"
     _order = "create_date desc"
-    _rec_name = "article_id"
+    _rec_name = "document_id"
 
     user_id = fields.Many2one(
         comodel_name="res.users",
@@ -20,22 +20,21 @@ class KnowledgeFavorite(models.Model):
         index=True,
         ondelete="cascade",
     )
-    article_id = fields.Many2one(
-        comodel_name="knowledge.article",
-        string="Artículo",
+    document_id = fields.Many2one(
+        comodel_name="knowledge.document",
+        string="Documento",
         required=True,
         index=True,
         ondelete="cascade",
     )
     notes = fields.Text(
         string="Notas personales",
-        help="Notas privadas sobre este artículo",
     )
 
     _sql_constraints = [
         (
-            "user_article_uniq",
-            "UNIQUE(user_id, article_id)",
-            "Este artículo ya está en tus favoritos.",
+            "user_document_uniq",
+            "UNIQUE(user_id, document_id)",
+            "Este documento ya está en tus favoritos.",
         ),
     ]

@@ -1,23 +1,29 @@
 # Copyright 2026 Syntropy
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 {
-    "name": "Syntropy Knowledge Base",
-    "version": "18.0.1.0.0",
-    "category": "Knowledge Management",
-    "summary": "Base de conocimiento dinámica e intuitiva para tu organización",
+    "name": "Syntropy Docs",
+    "version": "18.0.2.0.0",
+    "category": "Productivity/Documents",
+    "summary": "Gestión documental estilo Google Drive para tu organización",
     "description": """
-Syntropy Knowledge Base
-========================
-Módulo de gestión del conocimiento organizacional con:
-- Artículos con editor HTML enriquecido y versionado
-- Categorías jerárquicas para organización flexible
-- Etiquetas (tags) para clasificación transversal
-- Sistema de favoritos personales
-- Vistas Kanban, Lista y Formulario intuitivas
-- Control de acceso por roles (Lector / Editor / Administrador)
-- Integración con chatter para colaboración
-- Dashboard con métricas de uso
-- Búsqueda avanzada por contenido, categoría, etiqueta y autor
+Syntropy Docs — Document Management System
+=============================================
+Plataforma de gestión documental inspirada en Google Drive / Docs:
+
+- **Workspaces** compartidos (como unidades compartidas)
+- **Carpetas** jerárquicas con navegación tipo breadcrumb
+- **Documentos** con editor HTML enriquecido y colaborativo
+- **Hojas de cálculo** con editor de tablas integrado
+- **Archivos adjuntos** con vista previa (PDF, imágenes, etc.)
+- **Enlaces** a recursos externos
+- **Notas rápidas** de texto plano
+- Vista **Kanban tipo Drive** con miniaturas y thumbnails
+- Sistema de **favoritos** (★) por usuario
+- Flujo de publicación: Borrador → Revisión → Publicado
+- **Versionado** automático con restauración
+- Control de acceso por roles (Lector / Editor / Admin)
+- Búsqueda avanzada y filtros por tipo, carpeta, etiqueta, autor
+- Soporte **multi-compañía**
     """,
     "author": "Syntropy",
     "website": "https://github.com/syntropy",
@@ -34,9 +40,10 @@ Módulo de gestión del conocimiento organizacional con:
         # Data
         "data/knowledge_data.xml",
         # Views
-        "views/knowledge_category_views.xml",
+        "views/knowledge_workspace_views.xml",
+        "views/knowledge_folder_views.xml",
         "views/knowledge_tag_views.xml",
-        "views/knowledge_article_views.xml",
+        "views/knowledge_document_views.xml",
         "views/knowledge_favorite_views.xml",
         # Menus (last, after all actions are defined)
         "views/knowledge_menus.xml",
@@ -44,6 +51,7 @@ Módulo de gestión del conocimiento organizacional con:
     "assets": {
         "web.assets_backend": [
             "syntropy_knowledge/static/src/scss/knowledge.scss",
+            "syntropy_knowledge/static/src/js/knowledge_preview.js",
         ],
     },
     "installable": True,

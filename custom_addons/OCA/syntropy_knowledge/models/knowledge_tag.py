@@ -25,14 +25,14 @@ class KnowledgeTag(models.Model):
         default=True,
     )
     article_ids = fields.Many2many(
-        comodel_name="knowledge.article",
-        relation="knowledge_article_tag_rel",
+        comodel_name="knowledge.document",
+        relation="knowledge_document_tag_rel",
         column1="tag_id",
-        column2="article_id",
-        string="Artículos",
+        column2="document_id",
+        string="Documentos",
     )
     article_count = fields.Integer(
-        string="Nº Artículos",
+        string="Nº Documentos",
         compute="_compute_article_count",
     )
 

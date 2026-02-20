@@ -2,59 +2,10 @@
 <odoo noupdate="1">
 
     <!-- ════════════════════════════════════════════════════════════
-         DATOS INICIALES
+         DATOS INICIALES — SYNTROPY DOCS
          ════════════════════════════════════════════════════════════ -->
 
-    <!-- Categorías base -->
-    <record id="category_general" model="knowledge.category">
-        <field name="name">General</field>
-        <field name="icon">📚</field>
-        <field name="description">Artículos de conocimiento general</field>
-        <field name="sequence">1</field>
-        <field name="color">1</field>
-    </record>
-
-    <record id="category_processes" model="knowledge.category">
-        <field name="name">Procesos</field>
-        <field name="icon">⚙️</field>
-        <field name="description">Documentación de procesos organizacionales</field>
-        <field name="sequence">2</field>
-        <field name="color">2</field>
-    </record>
-
-    <record id="category_policies" model="knowledge.category">
-        <field name="name">Políticas</field>
-        <field name="icon">📋</field>
-        <field name="description">Políticas y normativas de la empresa</field>
-        <field name="sequence">3</field>
-        <field name="color">4</field>
-    </record>
-
-    <record id="category_tech" model="knowledge.category">
-        <field name="name">Tecnología</field>
-        <field name="icon">💻</field>
-        <field name="description">Documentación técnica y guías de TI</field>
-        <field name="sequence">4</field>
-        <field name="color">5</field>
-    </record>
-
-    <record id="category_onboarding" model="knowledge.category">
-        <field name="name">Onboarding</field>
-        <field name="icon">🚀</field>
-        <field name="description">Material de inducción para nuevos integrantes</field>
-        <field name="sequence">5</field>
-        <field name="color">10</field>
-    </record>
-
-    <record id="category_faq" model="knowledge.category">
-        <field name="name">FAQ</field>
-        <field name="icon">❓</field>
-        <field name="description">Preguntas frecuentes</field>
-        <field name="sequence">6</field>
-        <field name="color">3</field>
-    </record>
-
-    <!-- Etiquetas predeterminadas -->
+    <!-- ═══ Etiquetas predeterminadas ═══ -->
     <record id="tag_important" model="knowledge.tag">
         <field name="name">Importante</field>
         <field name="color">1</field>
@@ -85,47 +36,95 @@
         <field name="color">3</field>
     </record>
 
-    <!-- Artículo de bienvenida -->
-    <record id="article_welcome" model="knowledge.article">
-        <field name="name">Bienvenido a la Base de Conocimiento</field>
+    <!-- ═══ Workspace principal ═══ -->
+    <record id="workspace_main" model="knowledge.workspace">
+        <field name="name">Syntropy</field>
+        <field name="icon">🏢</field>
+        <field name="description">Workspace principal de la organización</field>
+    </record>
+
+    <!-- ═══ Carpetas base ═══ -->
+    <record id="folder_general" model="knowledge.folder">
+        <field name="name">General</field>
+        <field name="icon">📚</field>
+        <field name="workspace_id" ref="workspace_main"/>
+    </record>
+
+    <record id="folder_processes" model="knowledge.folder">
+        <field name="name">Procesos</field>
+        <field name="icon">⚙️</field>
+        <field name="workspace_id" ref="workspace_main"/>
+    </record>
+
+    <record id="folder_policies" model="knowledge.folder">
+        <field name="name">Políticas</field>
+        <field name="icon">📋</field>
+        <field name="workspace_id" ref="workspace_main"/>
+    </record>
+
+    <record id="folder_tech" model="knowledge.folder">
+        <field name="name">Tecnología</field>
+        <field name="icon">💻</field>
+        <field name="workspace_id" ref="workspace_main"/>
+    </record>
+
+    <record id="folder_onboarding" model="knowledge.folder">
+        <field name="name">Onboarding</field>
+        <field name="icon">🚀</field>
+        <field name="workspace_id" ref="workspace_main"/>
+    </record>
+
+    <record id="folder_faq" model="knowledge.folder">
+        <field name="name">FAQ</field>
+        <field name="icon">❓</field>
+        <field name="workspace_id" ref="workspace_main"/>
+    </record>
+
+    <!-- ═══ Documento de bienvenida ═══ -->
+    <record id="doc_welcome" model="knowledge.document">
+        <field name="name">Bienvenido a Syntropy Docs</field>
         <field name="icon">👋</field>
-        <field name="category_id" ref="category_general"/>
+        <field name="doc_type">document</field>
+        <field name="workspace_id" ref="workspace_main"/>
+        <field name="folder_id" ref="folder_general"/>
         <field name="tag_ids" eval="[(4, ref('tag_important'))]"/>
-        <field name="priority">1</field>
         <field name="state">published</field>
-        <field name="publish_date" eval="time.strftime('%Y-%m-%d %H:%M:%S')"/>
-        <field name="summary">Guía introductoria a la base de conocimiento de Syntropy</field>
         <field name="content"><![CDATA[
 <div class="container py-4">
     <div class="row">
         <div class="col-12">
-            <h2>👋 ¡Bienvenido a la Base de Conocimiento de Syntropy!</h2>
+            <h2>👋 ¡Bienvenido a Syntropy Docs!</h2>
             <p class="lead">
-                Este es tu espacio centralizado para documentar, compartir y encontrar
-                todo el conocimiento de la organización.
+                Tu espacio centralizado para documentar, compartir y encontrar todo
+                el conocimiento de la organización — inspirado en Google Drive.
             </p>
             <hr/>
+
             <h3>🎯 ¿Qué puedes hacer aquí?</h3>
             <ul>
-                <li><strong>Crear artículos</strong> - Documenta procesos, guías y conocimiento valioso</li>
-                <li><strong>Organizar por categorías</strong> - Usa categorías jerárquicas para mantener todo ordenado</li>
-                <li><strong>Etiquetar contenido</strong> - Las etiquetas te permiten clasificación transversal</li>
-                <li><strong>Marcar favoritos</strong> - Guarda los artículos que más consultas con ⭐</li>
-                <li><strong>Buscar y filtrar</strong> - Encuentra rápidamente lo que necesitas</li>
-                <li><strong>Colaborar</strong> - Usa el chatter para discutir y mejorar artículos</li>
+                <li><strong>Crear documentos</strong> — Documentos enriquecidos con editor visual</li>
+                <li><strong>Hojas de cálculo</strong> — Tablas y datos tabulares</li>
+                <li><strong>Notas rápidas</strong> — Ideas y anotaciones al instante</li>
+                <li><strong>Subir archivos</strong> — PDFs, imágenes, presentaciones</li>
+                <li><strong>Enlaces</strong> — Accesos rápidos a recursos externos</li>
+                <li><strong>Organizar en carpetas</strong> — Estructura jerárquica flexible</li>
+                <li><strong>Workspaces</strong> — Espacios compartidos por equipo o proyecto</li>
+                <li><strong>Marcar favoritos ★</strong> — Acceso rápido a lo más importante</li>
             </ul>
+
             <h3>📝 Flujo de trabajo</h3>
             <ol>
-                <li><strong>Borrador</strong> → Crea y edita tu artículo libremente</li>
-                <li><strong>En Revisión</strong> → Envíalo para revisión del equipo</li>
+                <li><strong>Borrador</strong> → Crea y edita libremente</li>
+                <li><strong>En Revisión</strong> → Envía para aprobación del equipo</li>
                 <li><strong>Publicado</strong> → Disponible para toda la organización</li>
             </ol>
-            <h3>🏷️ Categorías disponibles</h3>
+
+            <h3>📁 Carpetas disponibles</h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Categoría</th>
-                        <th>Descripción</th>
+                        <th>Carpeta</th>
+                        <th>Uso</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -137,9 +136,10 @@
                     <tr><td>❓ FAQ</td><td>Preguntas frecuentes y respuestas</td></tr>
                 </tbody>
             </table>
+
             <div class="alert alert-info">
-                <strong>💡 Tip:</strong> Usa la vista Kanban para ver tus artículos organizados
-                por categoría, y la búsqueda avanzada para filtrar por etiquetas, autor o estado.
+                <strong>💡 Tip:</strong> Usa el menú <em>+ Nuevo</em> para crear documentos de cualquier tipo.
+                Las vistas Kanban te muestran los archivos como tarjetas al estilo Google Drive.
             </div>
         </div>
     </div>
