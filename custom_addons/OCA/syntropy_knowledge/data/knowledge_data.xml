@@ -83,7 +83,6 @@
     <!-- ═══ Documento de bienvenida ═══ -->
     <record id="doc_welcome" model="knowledge.document">
         <field name="name">Bienvenido a Syntropy Docs</field>
-        <field name="icon">👋</field>
         <field name="doc_type">document</field>
         <field name="workspace_id" ref="workspace_main"/>
         <field name="folder_id" ref="folder_general"/>
